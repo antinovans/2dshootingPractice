@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8583404122049492467
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4327207521837289325, guid: b1a5f87a8428cbb4cb7966658567b496, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4356780303931524499, guid: b1a5f87a8428cbb4cb7966658567b496, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8476435450391029842, guid: b1a5f87a8428cbb4cb7966658567b496, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8476435450391029842, guid: b1a5f87a8428cbb4cb7966658567b496, type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8491995678025231462, guid: b1a5f87a8428cbb4cb7966658567b496, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492840260893187388, guid: b1a5f87a8428cbb4cb7966658567b496, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492840260893187388, guid: b1a5f87a8428cbb4cb7966658567b496, type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492840260893187388, guid: b1a5f87a8428cbb4cb7966658567b496, type: 3}
+      propertyPath: InitialModule.startLifetime.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8493313393373109348, guid: b1a5f87a8428cbb4cb7966658567b496, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580161045719193242, guid: b1a5f87a8428cbb4cb7966658567b496, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580161045719193242, guid: b1a5f87a8428cbb4cb7966658567b496, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.412718
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580161045719193242, guid: b1a5f87a8428cbb4cb7966658567b496, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.2555363
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580161045719193242, guid: b1a5f87a8428cbb4cb7966658567b496, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580161045719193242, guid: b1a5f87a8428cbb4cb7966658567b496, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580161045719193242, guid: b1a5f87a8428cbb4cb7966658567b496, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580161045719193242, guid: b1a5f87a8428cbb4cb7966658567b496, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580161045719193242, guid: b1a5f87a8428cbb4cb7966658567b496, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580161045719193242, guid: b1a5f87a8428cbb4cb7966658567b496, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580161045719193242, guid: b1a5f87a8428cbb4cb7966658567b496, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580161045719193242, guid: b1a5f87a8428cbb4cb7966658567b496, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8582097823250335858, guid: b1a5f87a8428cbb4cb7966658567b496, type: 3}
+      propertyPath: m_Name
+      value: Advanced Bullet Impact
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8541975788840776422, guid: b1a5f87a8428cbb4cb7966658567b496, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: b1a5f87a8428cbb4cb7966658567b496, type: 3}
+--- !u!1 &2212296518499713 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8582097823250335858, guid: b1a5f87a8428cbb4cb7966658567b496, type: 3}
+  m_PrefabInstance: {fileID: 8583404122049492467}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7659667335528650502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2212296518499713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1105ac768c7f4bffb32adbf3d157524f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vfxType: 0
+  audioClip:
+    type: 1
+    clip: {fileID: 8300000, guid: 8558e6b559b10404897fab08b5a0b419, type: 3}
