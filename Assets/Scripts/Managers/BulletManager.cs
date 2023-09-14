@@ -11,6 +11,7 @@ public class BulletManager : MonoBehaviour
     public static BulletManager instance;
     public BulletModel bulletModel;
     public List<BulletConfig> bulletConfigs = new List<BulletConfig>();
+    public Action onBulletModelChanged;
     #endregion
 
     #region private
@@ -28,7 +29,6 @@ public class BulletManager : MonoBehaviour
         {
             instance = this;
         }
-
         Init();
     }
 
@@ -48,18 +48,12 @@ public class BulletManager : MonoBehaviour
             true, 100, 1000);
     }
 
-    private bool isUpgraded = false;
-    private void Update()
-    {
-        if(!isUpgraded && Input.GetKeyDown(KeyCode.Z))
-            UpgradeModel();
-    }
-
     private int curModel = 0;
     public void UpgradeModel()
     {
         curModel++;
         bulletModel = new BulletModel(bulletConfigs[curModel]);
+        onBulletModelChanged?.Invoke();
     }
     public Bullet GenerateAttack(Vector2 pos, Quaternion rotation, Vector2 movingDir)
     {
@@ -68,8 +62,7 @@ public class BulletManager : MonoBehaviour
         bullet.Play(movingDir);
         return bullet;
     }
-    
-    
+
     public void Release(Bullet bullet)
     {
         bulletPool.Release(bullet);

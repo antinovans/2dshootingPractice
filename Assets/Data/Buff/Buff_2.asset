@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97bd616885bb400797cc864bd3e81c01, type: 3}
-  m_Name: default Attack Config
+  m_Script: {fileID: 11500000, guid: d66a20c445ee4ddea1b088e1dd697863, type: 3}
+  m_Name: Buff_2
   m_EditorClassIdentifier: 
-  RecoilAmount: 1
-  CameraShakeAmount: 0.1
-  shootingInterval: 0.15
-  maxAngleOffset: 10
-  randomAngleOffset: 2
-  numOfBulletsPerShot: 1
+  id: 2
+  description: bullet base damage +2
+  value: 2

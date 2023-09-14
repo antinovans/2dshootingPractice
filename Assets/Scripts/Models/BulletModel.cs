@@ -33,19 +33,6 @@ public class BulletModel
         hitClip = newModel.hitClip;
     }
 
-    public void CopyFromAnotherModel(BulletModel newModel)
-    {
-        this.maxSpeed = newModel.maxSpeed;
-        this.minSpeed = newModel.minSpeed;
-        this.speedCurve = newModel.speedCurve;
-        this.pushBackForce = newModel.pushBackForce;
-        this.pauseTime = newModel.pauseTime;
-        this.existingDuration = newModel.existingDuration;
-        this.dmgProfile.CopyValue(newModel.dmgProfile);
-        this.bulletSprite = newModel.bulletSprite;
-        this.trail = newModel.trail;
-        fireSoundClip = newModel.fireSoundClip;
-    }
     public BulletModel(BulletConfig config)
     {
         this.maxSpeed = config.maxSpeed;

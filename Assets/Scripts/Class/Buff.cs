@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public abstract class Buff
 {
         public BuffConfig config;
@@ -6,5 +8,10 @@ public abstract class Buff
                 this.config = config;
         }
 
-        public abstract void Apply();
+        public virtual void OnApply()
+        {
+                Debug.Log(config.description + "activated");
+                BuffManager.instance.AllBuffs.Remove(config.id);
+                BuffManager.instance.ActivatedBuffs.Add(config.id, this);
+        }
 }

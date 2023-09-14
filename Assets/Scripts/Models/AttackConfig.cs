@@ -7,4 +7,6 @@ public class AttackConfig: ScriptableObject
     public float CameraShakeAmount;
     public float shootingInterval;
     public float maxAngleOffset;
+    public float randomAngleOffset;
+    public int numOfBulletsPerShot;
 }

@@ -53,6 +53,3 @@ MonoBehaviour:
   fireSoundClip:
     type: 0
     clip: {fileID: 8300000, guid: eb24911600aabd7439c034f8ce860e27, type: 3}
-  hitClip:
-    type: 1
-    clip: {fileID: 8300000, guid: d102c08aedf1a7a4ab93401821d69c5d, type: 3}

@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public AttackModel attackModel;
     //actions
     public Action<Vector2> onBulletFire;
+    public Action<Vector2> onBulletHit;
     public Action<EnemyConfig> onEnemyDie;
     public Action<int> onEnemyAttack;
     public static GameManager instance;

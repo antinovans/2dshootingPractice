@@ -94,8 +94,8 @@ public class Bullet : MonoBehaviour
         //特效处理
         Vector2 impactPoint = collision.contacts[0].point;
         VFXManager.instance.GenerateVFX(VFXType.OnHit, impactPoint);
-        if(Random.Range(0f,1f) > 0.7f)
-            VFXManager.instance.GenerateVFX(VFXType.OhExplosion, impactPoint + Random.insideUnitCircle);
+        //触发子弹碰到的action
+        GameManager.instance.onBulletHit?.Invoke(impactPoint);
         //给enemy传伤害
         if (collision.gameObject.CompareTag("Enemy"))
         {
