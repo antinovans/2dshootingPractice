@@ -13,9 +13,10 @@ public class GameManager : MonoBehaviour
     public bool playerIsFacingRight = true;
     public bool playerIsShooting = false;
     public AttackModel attackModel;
-    public BulletModel curBulletModel;
+    //actions
     public Action<Vector2> onBulletFire;
     public Action<EnemyConfig> onEnemyDie;
+    public Action<int> onEnemyAttack;
     public static GameManager instance;
     #endregion
     [SerializeField]private AttackConfig config;
@@ -39,10 +40,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
-    {
-        curBulletModel = BulletManager.instance.bulletModel;
-    }
+
 
     // Update is called once per frame
     void Update()

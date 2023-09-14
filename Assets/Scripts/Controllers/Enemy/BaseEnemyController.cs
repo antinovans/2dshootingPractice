@@ -10,7 +10,8 @@ public enum EnemyState
     Idle = 0,
     Move = 1,
     Stun = 2,
-    Die = 3
+    Die = 3,
+    Attack = 4
 }
 public abstract class BaseEnemyController : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public abstract class BaseEnemyController : MonoBehaviour
     protected AudioSource audioSource;
     /***    status handler    ***/
     protected IStatusReceiver statusReceiver;
-    protected private string[] animatorStates = { "IsHit", "IsDead", "IsIdle", "IsAttack", "IsMove" };
+    protected string[] animatorStates = { "IsHit", "IsDead", "IsIdle", "IsAttack", "IsMove" };
     #endregion
 
     #region variables
@@ -131,7 +132,7 @@ public abstract class BaseEnemyController : MonoBehaviour
             }
         }
     }
-    private void UpdateAnimator()
+    protected virtual void UpdateAnimator()
     {
         // 先将所有状态设为false
         foreach (string state in animatorStates)
@@ -153,6 +154,9 @@ public abstract class BaseEnemyController : MonoBehaviour
                 break;
             case EnemyState.Die:
                 ac.SetBool("IsDead", true);
+                break;
+            case EnemyState.Attack:
+                ac.SetBool("IsAttack", true);
                 break;
             // 其他状态
         }
@@ -193,6 +197,14 @@ public abstract class BaseEnemyController : MonoBehaviour
         LastState = CurrentState;
         CurrentState = EnemyState.Move;
         MoveSpeed = config.defaultSpeed;
+    }
+
+    protected virtual void OnAttack()
+    {
+        GameManager.instance.onEnemyAttack?.Invoke(config.attackDmg);
+        audioSource.clip = config.onAttackClip;
+        audioSource.Play();
+        CurrentState = EnemyState.Move;
     }
     protected virtual void OnEnterSpeedChange(float speedMultiplier)
     {
@@ -284,5 +296,17 @@ public abstract class BaseEnemyController : MonoBehaviour
         var corpse = Instantiate(config.deadEnemyObj,  transform.position, transform.rotation, GameManager.instance.corpseTransform);
         corpse.transform.localScale = transform.localScale;
         EnemyManager.instance.Release(this);
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Base") && 
+            (CurrentState == EnemyState.Move || CurrentState == EnemyState.Idle))
+        {
+            rb.velocity = new Vector2(0f, rb.velocity.y);
+            LastState = CurrentState;
+            CurrentState = EnemyState.Attack;
+        }
+            
     }
 }

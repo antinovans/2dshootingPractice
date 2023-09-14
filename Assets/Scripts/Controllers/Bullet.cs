@@ -31,7 +31,8 @@ public class Bullet : MonoBehaviour
         elapsedTime = 0f;
         canPlay = false;
         movingDir = Vector2.zero;
-        curBulletModel = new BulletModel(BulletManager.instance.bulletModel); 
+        curBulletModel = BulletManager.instance.bulletModel;
+        UpdateBulletBasedOnModel(curBulletModel);
         //设置攻击击中的效果回调
         OnAttackHit += (hitObject, dmgProfile) =>
         {
@@ -49,7 +50,8 @@ public class Bullet : MonoBehaviour
             transform.SetParent(parent);
         transform.position = startPos;
         transform.rotation = rotation;
-        UpdateBulletBasedOnModel(newModel);
+        if(curBulletModel != newModel)
+            UpdateBulletBasedOnModel(newModel);
     }
     private void OnReset()
     {
@@ -69,9 +71,9 @@ public class Bullet : MonoBehaviour
     }
     private void UpdateBulletBasedOnModel(BulletModel newModel)
     {
-        curBulletModel.CopyFromAnotherModel(newModel);
-        sr.sprite = curBulletModel.bulletSprite;
-        trail = Instantiate(curBulletModel.trail, transform.position, Quaternion.identity, transform);
+        sr.sprite = newModel.bulletSprite;
+        Destroy(trail);
+        trail = Instantiate(newModel.trail, transform.position, Quaternion.identity, transform);
     }
     protected virtual void OnFixedUpdate()
     {

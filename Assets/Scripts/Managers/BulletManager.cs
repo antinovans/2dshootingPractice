@@ -36,9 +36,8 @@ public class BulletManager : MonoBehaviour
     {
         InitPool();
         Assert.IsTrue(bulletConfigs.Count > 0);
-        bulletModel = new BulletModel(bulletConfigs[1]);
+        bulletModel = new BulletModel(bulletConfigs[0]);
     }
-
     private void InitPool()
     {
         bulletPool = new ObjectPool<Bullet>(
@@ -47,6 +46,20 @@ public class BulletManager : MonoBehaviour
             e=>e.gameObject.SetActive(false),
             e=>Destroy(e.gameObject),
             true, 100, 1000);
+    }
+
+    private bool isUpgraded = false;
+    private void Update()
+    {
+        if(!isUpgraded && Input.GetKeyDown(KeyCode.Z))
+            UpgradeModel();
+    }
+
+    private int curModel = 0;
+    public void UpgradeModel()
+    {
+        curModel++;
+        bulletModel = new BulletModel(bulletConfigs[curModel]);
     }
     public Bullet GenerateAttack(Vector2 pos, Quaternion rotation, Vector2 movingDir)
     {

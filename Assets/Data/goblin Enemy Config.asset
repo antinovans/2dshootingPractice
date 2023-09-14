@@ -15,7 +15,9 @@ MonoBehaviour:
   type: 0
   defaultSpeed: 4
   hp: 10
+  attackDmg: 2
   onDiedPauseTime: 0.05
   onHitclip: {fileID: 8300000, guid: ef852f4dba9f9e34285d4227eb3883d0, type: 3}
   onDieclip: {fileID: 8300000, guid: c6546a87ec8cd8e4d8cc50ea7b624513, type: 3}
+  onAttackClip: {fileID: 8300000, guid: 4e7a9f408abdba8459fdccbeaea95215, type: 3}
   deadEnemyObj: {fileID: 777262182347833442, guid: 7d4807f9ddd538147b576dbd85905c67, type: 3}
