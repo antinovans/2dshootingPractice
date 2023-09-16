@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ffc324f6c564155834dacfe184ad51d, type: 3}
   m_Name: upgraded Bullet Config 1
   m_EditorClassIdentifier: 
-  maxSpeed: 40
-  minSpeed: 30
+  maxSpeed: 50
+  minSpeed: 25
   speedCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 2
-      outSlope: 2
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
@@ -29,8 +29,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: 2
+      outSlope: 2
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
@@ -42,12 +42,12 @@ MonoBehaviour:
   pauseTime: 0
   existingDuration: 2
   dmgProfile:
-    ImpulseDamageAmount: 4
+    ImpulseDamageAmount: 8
     CanStun: 1
     StunDuration: 0.5
     CanRepel: 1
-    RepelForceMagnitude: 0.2
-    RepelDirection: {x: 0.9886868, y: 0.14999482, z: 0}
+    RepelForceMagnitude: 0.5
+    RepelDirection: {x: 0.987032, y: 0.16052392, z: 0}
   bulletSprite: {fileID: 21300000, guid: 5768780c26d78d24ab697f101d9b833c, type: 3}
   trail: {fileID: 2511204710317024181, guid: 4d0c224000e85834294b54dcaf260735, type: 3}
   fireSoundClip:

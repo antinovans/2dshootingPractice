@@ -9,14 +9,14 @@ public class ExplosionVFXController : VFXController
 
     private float minForce;
     private float maxForce;
-    private CircleCollider2D collider;
+    private CircleCollider2D mCollider;
     private float explosionRadius;
     private Action<GameObject, DamageProfile, Vector2> OnExplosionHit;
     protected override void Init()
     {
         base.Init();
-        collider = GetComponent<CircleCollider2D>();
-        explosionRadius = collider.radius;
+        mCollider = GetComponent<CircleCollider2D>();
+        explosionRadius = GetComponent<CircleCollider2D>().radius;
         maxForce = profile.RepelForceMagnitude;
         minForce = maxForce / 4;
         OnExplosionHit += (hitObject, dmgProfile, force) =>
@@ -32,12 +32,12 @@ public class ExplosionVFXController : VFXController
     protected override void OnReset()
     {
         base.OnReset();
-        collider.enabled = false;
+        mCollider.enabled = false;
     }
     public override void Play()
     {
         base.Play();
-        collider.enabled = true;
+        mCollider.enabled = true;
         StartCoroutine(DisableCollider());
         GameManager.instance.StopTime(pauseTime);
     }
@@ -45,7 +45,7 @@ public class ExplosionVFXController : VFXController
     IEnumerator DisableCollider()
     {
         yield return new WaitForSeconds(0.1f);
-        collider.enabled = false;
+        mCollider.enabled = false;
     }
     private Vector2 CalculateForce(Vector3 otherPos)
     {

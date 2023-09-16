@@ -107,7 +107,7 @@ public abstract class BaseEnemyController : MonoBehaviour
     private void FixedUpdate() => OnFixedUpdate();
     protected virtual void OnFixedUpdate()
     {
-        Navigate();
+        UpdatePosition();
         if(isFacingRight)
             transform.localScale = originalScale; // 设定原始方向
         else
@@ -116,12 +116,11 @@ public abstract class BaseEnemyController : MonoBehaviour
 
     #endregion
     
-    protected virtual void Navigate()
+    protected virtual void UpdatePosition()
     {
         if (CurrentState == EnemyState.Move)
         {
-            var movingDir = new Vector2((target.position - transform.position).x, 0f).normalized;
-            rb.velocity = movingDir * config.defaultSpeed;
+            Navigate();
             if (rb.velocity.x > 0.1f) // 向右移动
             {
                 isFacingRight = true;
@@ -131,6 +130,12 @@ public abstract class BaseEnemyController : MonoBehaviour
                 isFacingRight = false;
             }
         }
+    }
+
+    protected virtual void Navigate()
+    {
+        var movingDir = new Vector2((target.position - transform.position).x, 0f).normalized;
+        rb.velocity = new Vector2(movingDir.x * config.defaultSpeed, rb.velocity.y);
     }
     protected virtual void UpdateAnimator()
     {
@@ -233,8 +238,8 @@ public abstract class BaseEnemyController : MonoBehaviour
     {
         //disable collision
         gameObject.layer = LayerMask.NameToLayer("DeadEnemy");
-        //invoker相关action
-        GameManager.instance.onEnemyDie?.Invoke(config);
+        //invoke相关action
+        GameManager.instance.onEnemyDie?.Invoke(config, transform.position);
         //animator
         SetAnimatorToDie();
         //play dead sound

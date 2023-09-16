@@ -53,6 +53,8 @@ public class BuffManager : MonoBehaviour
 
     public Buff GetRandomBuff()
     {
+        if (keyValuePairs.Count == 0)
+            return null;
         var randomPair = keyValuePairs[rand.Next(keyValuePairs.Count)];
         return AllBuffs[randomPair.Key];
     }

@@ -5,12 +5,11 @@ public class Buff_2 : Buff
     public override void OnApply()
     {
         base.OnApply();
-        IncreaseBaseDamage();
-        BulletManager.instance.onBulletModelChanged += IncreaseBaseDamage;
+        IncreaseBaseShootingSpeed();
     }
 
-    private void IncreaseBaseDamage()
+    private void IncreaseBaseShootingSpeed()
     {
-        BulletManager.instance.bulletModel.dmgProfile.ImpulseDamageAmount += (int)config.value;
+        GameManager.instance.attackModel.ShootingInterval *= (1 - config.value);
     }
 }

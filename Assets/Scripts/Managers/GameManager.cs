@@ -16,8 +16,12 @@ public class GameManager : MonoBehaviour
     //actions
     public Action<Vector2> onBulletFire;
     public Action<Vector2> onBulletHit;
-    public Action<EnemyConfig> onEnemyDie;
+    public Action<Vector2> onBulletHitEnemy;
     public Action<int> onEnemyAttack;
+    public Action<EnemyConfig, Vector2> onEnemyDie;
+    public Action<Vector2, float> onCameraZoomAt;
+    public Action onLevelStart;
+    public Action onLevelClear;
     public static GameManager instance;
     #endregion
     [SerializeField]private AttackConfig config;
@@ -37,7 +41,7 @@ public class GameManager : MonoBehaviour
     private void Init()
     {
         attackModel = new AttackModel(config);
-        onEnemyDie += (e => StopTime(e.onDiedPauseTime));
+        onEnemyDie += (e,pos) => StopTime(e.onDiedPauseTime);
     }
 
     // Start is called before the first frame update
@@ -47,7 +51,6 @@ public class GameManager : MonoBehaviour
     void Update()
     {
     }
-
     public void StopTime(float duration)
     {
         if (stopTimeCor != null && duration < currentHitStopTimeLeft)
@@ -64,7 +67,7 @@ public class GameManager : MonoBehaviour
             currentHitStopTimeLeft = duration;
         }
     }
-    IEnumerator HitStop()
+    private IEnumerator HitStop()
     {
         Time.timeScale = 0.1f;
         // 等待，直到所有的停顿都完成

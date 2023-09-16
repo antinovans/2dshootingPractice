@@ -45,13 +45,6 @@ public class VFXManager : MonoBehaviour
         Init();
     }
 
-    private bool isUpdated = false;
-    private void Update()
-    {
-        if (!isUpdated && Input.GetKeyDown(KeyCode.Z))
-            UpdateEffect(VFXType.OnHit);
-    }
-
     private void Init()
     {
         int numOfEffects = Enum.GetValues(typeof(VFXType)).Length;
@@ -70,7 +63,6 @@ public class VFXManager : MonoBehaviour
                 );
         }
     }
-
     public void UpdateEffect(VFXType upgradeType)
     {
         ClearPoolOnVFXType(upgradeType);

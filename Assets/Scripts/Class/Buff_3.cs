@@ -8,7 +8,7 @@ public class Buff_3 : Buff
     public override void OnApply()
     {
         base.OnApply();
-        GameManager.instance.onBulletHit += CastExplosion;
+        GameManager.instance.onBulletHitEnemy += CastExplosion;
     }
 
     private void CastExplosion(Vector2 impactPoint)

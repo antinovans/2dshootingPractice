@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -8,14 +9,17 @@ public class BuffButton : MonoBehaviour
     private Buff assignedBuff;
 
     [SerializeField]
-    private TextMeshProUGUI buffDescriptionText; 
+    private TextMeshProUGUI buffDescriptionText;
 
-    
-    private void Start() => OnShowUp();
+
+    private void OnEnable() => OnShowUp();
+
 
     private void OnShowUp()
     {
         assignedBuff = BuffManager.instance.GetRandomBuff();
+        if(assignedBuff == null)
+            gameObject.SetActive(false);
         UpdateButtonText();
     }
 

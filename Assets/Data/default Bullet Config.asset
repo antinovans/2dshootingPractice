@@ -47,7 +47,7 @@ MonoBehaviour:
     StunDuration: 0.5
     CanRepel: 1
     RepelForceMagnitude: 0.2
-    RepelDirection: {x: 0.8663798, y: 0.49938565, z: 0}
+    RepelDirection: {x: 0.047015533, y: 0.9988942, z: 0}
   bulletSprite: {fileID: 21300000, guid: 9b6a828050916b946bceb15d2ed5fef2, type: 3}
   trail: {fileID: 2635531994403697744, guid: f86bb5d2a2db0674681ba43fb732824d, type: 3}
   fireSoundClip:

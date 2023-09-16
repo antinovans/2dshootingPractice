@@ -99,6 +99,7 @@ public class Bullet : MonoBehaviour
         //给enemy传伤害
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            GameManager.instance.onBulletHitEnemy?.Invoke(impactPoint);
             //顿帧处理
             if (curBulletModel.pauseTime > 0f)
             {

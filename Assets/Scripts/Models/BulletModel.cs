@@ -41,7 +41,8 @@ public class BulletModel
         this.pushBackForce = config.pushBackForce;
         this.pauseTime = config.pauseTime;
         this.existingDuration = config.existingDuration;
-        this.dmgProfile = config.dmgProfile;
+        this.dmgProfile = new DamageProfile();
+        dmgProfile.CopyValue(config.dmgProfile); 
         this.bulletSprite = config.bulletSprite;
         this.trail = config.trail;
         fireSoundClip = config.fireSoundClip;

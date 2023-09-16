@@ -7,13 +7,13 @@ using UnityEngine.Pool;
 public enum EnemyType
 {
     Goblin = 0,
+    FlyingEye = 1
 }
 public class EnemyManager : MonoBehaviour
 {
     #region public fields
     public static EnemyManager instance;
     public Transform enemysParent;
-    public Transform[] enemySpawnPoints;
     #endregion
     
     #region private

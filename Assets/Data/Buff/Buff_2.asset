@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Buff_2
   m_EditorClassIdentifier: 
   id: 2
-  description: bullet base damage +2
-  value: 2
+  description: bullet base shooting speed + 25%
+  value: 0.25
