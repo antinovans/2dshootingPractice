@@ -10,7 +10,6 @@ public abstract class Buff
 
         public virtual void OnApply()
         {
-                Debug.Log(config.description + "activated");
                 BuffManager.instance.AllBuffs.Remove(config.id);
                 BuffManager.instance.ActivatedBuffs.Add(config.id, this);
         }

@@ -8,6 +8,7 @@ public class LevelManager : MonoBehaviour
     public static LevelManager instance;
     [SerializeField] private LevelConfig[] configs;
     [SerializeField] private EnemySpawnController[] spawners;
+    private AudioSource audioSource;
     public int currentLevel = 0;
     private int totalEnemyInThisLevel = 0;
     private void Awake()
@@ -19,7 +20,7 @@ public class LevelManager : MonoBehaviour
             instance = this;
         }
         // Init();
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -33,7 +34,6 @@ public class LevelManager : MonoBehaviour
         totalEnemyInThisLevel = 0;
         if (currentLevel == configs.Length)
         {
-            EndGame();
             return;
         }
 
@@ -59,18 +59,16 @@ public class LevelManager : MonoBehaviour
             GameManager.instance.onCameraZoomAt?.Invoke(diePos, 2f);
             //time pause a little bit
             GameManager.instance.StopTime(2f);
-            StartCoroutine(ClearLevel(4f));
+            //play finished sound
+            audioSource.Play();
+            StartCoroutine(ClearLevel(2f));
         }
     }
 
     private IEnumerator ClearLevel(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        GameManager.instance.onLevelClear?.Invoke();
+        GameManager.instance.onLevelClear?.Invoke(currentLevel == configs.Length);
     }
 
-    private void EndGame()
-    {
-        throw new System.NotImplementedException();
-    }
 }

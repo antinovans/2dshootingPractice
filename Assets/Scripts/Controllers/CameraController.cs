@@ -70,7 +70,7 @@ public class CameraController : MonoBehaviour
             transform.position = originalPos;
         }
 
-        // UpdateCameraDesiredPosition();
+        UpdateCameraDesiredPosition();
         transform.position = originalPos;
     }
 

@@ -37,6 +37,7 @@ public class ExplosionVFXController : VFXController
     public override void Play()
     {
         base.Play();
+        VFXManager.instance.GenerateVFX(VFXType.Smoke, transform.position); //生成烟雾
         mCollider.enabled = true;
         StartCoroutine(DisableCollider());
         GameManager.instance.StopTime(pauseTime);
@@ -58,6 +59,5 @@ public class ExplosionVFXController : VFXController
     {
         var force = CalculateForce(other.gameObject.transform.position);
         OnExplosionHit?.Invoke(other.gameObject, profile, force);
-        VFXManager.instance.GenerateVFX(VFXType.Smoke, transform.position); //生成烟雾
     }
 }

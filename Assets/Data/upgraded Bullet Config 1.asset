@@ -40,7 +40,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   pushBackForce: 0
   pauseTime: 0
-  existingDuration: 2
+  existingDuration: 0.7
   dmgProfile:
     ImpulseDamageAmount: 8
     CanStun: 1

@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     public Action<EnemyConfig, Vector2> onEnemyDie;
     public Action<Vector2, float> onCameraZoomAt;
     public Action onLevelStart;
-    public Action onLevelClear;
+    public Action<bool> onLevelClear;
     public static GameManager instance;
     #endregion
     [SerializeField]private AttackConfig config;

@@ -4,17 +4,23 @@ using UnityEngine;
 public class CanvasController : MonoBehaviour
 {
         [SerializeField] private GameObject[] upgradeButtons;
+        [SerializeField] private GameObject backToMenuButton;
 
         private void Start()
         {
-                GameManager.instance.onLevelClear += ShowUpgradeButtons;
+                GameManager.instance.onLevelClear += ShowButtons;
         }
 
-        public void ShowUpgradeButtons()
+        public void ShowButtons(bool isGameFinished)
         {
-                foreach (var btn in upgradeButtons)
+                if (isGameFinished)
+                        ShowBackToMenuButton();
+                else
                 {
-                        btn.SetActive(true);
+                        foreach (var btn in upgradeButtons)
+                        {
+                                btn.SetActive(true);
+                        }
                 }
         }
         public void HideUpgradeButtons()
@@ -23,5 +29,9 @@ public class CanvasController : MonoBehaviour
                 {
                         btn.SetActive(false);
                 }
+        }
+        public void ShowBackToMenuButton()
+        {
+                backToMenuButton.SetActive(true);
         }
 }

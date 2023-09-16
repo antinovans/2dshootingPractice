@@ -15,10 +15,10 @@ MonoBehaviour:
   enemyWaveStatsArray:
   - enemyWaveKeyPairs:
     - enemyType: 0
-      enemyCount: 20
+      enemyCount: 10
   - enemyWaveKeyPairs:
     - enemyType: 0
-      enemyCount: 20
+      enemyCount: 10
   - enemyWaveKeyPairs:
     - enemyType: 0
       enemyCount: 10
@@ -28,5 +28,5 @@ MonoBehaviour:
   enemyGenerationInterval:
   - 1
   - 1
-  - 1
-  - 1
+  - 1.2
+  - 1.2
